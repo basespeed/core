@@ -1,2 +1,0 @@
-2018-11-15T15:22:00+00:00 CRITICAL require_once(): Failed opening required 'C:\xampp\htdocs\test/wp-content/themes/nextcore/inc/tgm/class-tgm-plugin-activation.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\lib\tgm\init.php on line 69
-

@@ -32,6 +32,15 @@ class Product extends Single {
 		return 'single product';
 	}
 
+	public static function get_editor_panel_config() {
+		$config = parent::get_editor_panel_config();
+		$config['widgets_settings']['woocommerce-product-content'] = [
+			'show_in_panel' => true,
+		];
+
+		return $config;
+	}
+
 	protected static function get_editor_panel_categories() {
 		$categories = [
 			'woocommerce-elements-single' => [

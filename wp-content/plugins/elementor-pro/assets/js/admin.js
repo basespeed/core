@@ -1,4 +1,4 @@
-/*! elementor-pro - v2.1.13 - 12-11-2018 */
+/*! elementor-pro - v2.3.1 - 19-12-2018 */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -82,23 +82,23 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 48);
+/******/ 	return __webpack_require__(__webpack_require__.s = 51);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 48:
+/***/ 51:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var modules = {
-	widget_template_edit_button: __webpack_require__(49),
-	forms_integrations: __webpack_require__(51),
-	AssetsManager: __webpack_require__(53),
-	RoleManager: __webpack_require__(58),
-	ThemeBuilder: __webpack_require__(60)
+	widget_template_edit_button: __webpack_require__(52),
+	forms_integrations: __webpack_require__(54),
+	AssetsManager: __webpack_require__(56),
+	RoleManager: __webpack_require__(61),
+	ThemeBuilder: __webpack_require__(63)
 };
 
 window.elementorProAdmin = {
@@ -116,20 +116,20 @@ jQuery(function () {
 
 /***/ }),
 
-/***/ 49:
+/***/ 52:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-	var EditButton = __webpack_require__(50);
+	var EditButton = __webpack_require__(53);
 	this.editButton = new EditButton();
 };
 
 /***/ }),
 
-/***/ 50:
+/***/ 53:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -163,25 +163,26 @@ module.exports = function () {
 
 /***/ }),
 
-/***/ 51:
+/***/ 54:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-	var ApiValidations = __webpack_require__(52);
+	var ApiValidations = __webpack_require__(55);
 
 	this.dripButton = new ApiValidations('drip_api_token');
 	this.getResponse = new ApiValidations('getresponse_api_key');
 	this.convertKit = new ApiValidations('convertkit_api_key');
 	this.mailChimp = new ApiValidations('mailchimp_api_key');
+	this.mailerLite = new ApiValidations('mailerlite_api_key');
 	this.activeCcampaign = new ApiValidations('activecampaign_api_key', 'activecampaign_api_url');
 };
 
 /***/ }),
 
-/***/ 52:
+/***/ 55:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -258,22 +259,22 @@ module.exports = function (key, fieldID) {
 
 /***/ }),
 
-/***/ 53:
+/***/ 56:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-	var FontManager = __webpack_require__(54),
-	    TypekitAdmin = __webpack_require__(57);
+	var FontManager = __webpack_require__(57),
+	    TypekitAdmin = __webpack_require__(60);
 	this.fontManager = new FontManager();
 	this.typekit = new TypekitAdmin();
 };
 
 /***/ }),
 
-/***/ 54:
+/***/ 57:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -283,8 +284,8 @@ module.exports = function () {
 	var self = this;
 
 	self.fields = {
-		upload: __webpack_require__(55),
-		repeater: __webpack_require__(56)
+		upload: __webpack_require__(58),
+		repeater: __webpack_require__(59)
 	};
 
 	self.selectors = {
@@ -420,7 +421,7 @@ module.exports = function () {
 
 /***/ }),
 
-/***/ 55:
+/***/ 58:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -577,7 +578,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 56:
+/***/ 59:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -736,7 +737,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 57:
+/***/ 60:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -812,20 +813,20 @@ module.exports = function () {
 
 /***/ }),
 
-/***/ 58:
+/***/ 61:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-	var AdvancedRoleManager = __webpack_require__(59);
+	var AdvancedRoleManager = __webpack_require__(62);
 	this.advancedRoleManager = new AdvancedRoleManager();
 };
 
 /***/ }),
 
-/***/ 59:
+/***/ 62:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -865,20 +866,20 @@ module.exports = function () {
 
 /***/ }),
 
-/***/ 60:
+/***/ 63:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-	var CreateTemplateDialog = __webpack_require__(61);
+	var CreateTemplateDialog = __webpack_require__(64);
 	this.createTemplateDialog = new CreateTemplateDialog();
 };
 
 /***/ }),
 
-/***/ 61:
+/***/ 64:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -900,7 +901,7 @@ module.exports = function () {
 	var setElements = function setElements() {
 		jQuery.each(selectors, function (key, selector) {
 			key = '$' + key;
-			elements[key] = elementorNewTemplate.layout.modal.getElements('content').find(selector);
+			elements[key] = elementorNewTemplate.layout.getModal().getElements('content').find(selector);
 		});
 	};
 
@@ -915,8 +916,6 @@ module.exports = function () {
 		setLocationFieldVisibility();
 
 		elements.$templateTypeInput.change(setLocationFieldVisibility);
-
-		elementorNewTemplate.layout.modal.off('show', run);
 	};
 
 	this.init = function () {
@@ -924,15 +923,10 @@ module.exports = function () {
 			return;
 		}
 
-		// TODO: Temp bc until v2.2.0
-		if (elementorNewTemplate.layout.getModal) {
-			// Make sure the modal has already been initialized
-			elementorNewTemplate.layout.getModal();
+		// Make sure the modal has already been initialized
+		elementorNewTemplate.layout.getModal();
 
-			run();
-		} else {
-			elementorNewTemplate.layout.modal.on('show', run);
-		}
+		run();
 	};
 
 	jQuery(setTimeout.bind(window, this.init));

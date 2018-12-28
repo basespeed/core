@@ -101,6 +101,8 @@
     height: 100%;
     width: 100%;
     border: 0; }
+  .elementor-fit-aspect-ratio video {
+    width: 100%; }
 
 .flatpickr-calendar {
   width: 280px; }
@@ -2155,7 +2157,8 @@ body.elementor-page .elementor-widget-menu-anchor {
     padding: 12px 10px; } }
 
 .elementor-widget-video .elementor-widget-container {
-  overflow: hidden; }
+  overflow: hidden;
+  transform: translate3d(0, 0, 0); }
 
 .elementor-widget-video .elementor-open-inline .elementor-custom-embed-image-overlay {
   position: absolute;
@@ -2915,13 +2918,13 @@ button.swiper-pagination-bullet {
   padding: 0; }
 
 @media (max-width: ELEMENTOR_SCREEN_SM_MAX) {
-  .elementor-hidden-phone {
+  .elementor:not(.elementor-edit-area-active) .elementor-hidden-phone {
     display: none; } }
 
 @media (min-width: ELEMENTOR_SCREEN_MD_MIN) and (max-width: ELEMENTOR_SCREEN_MD_MAX) {
-  .elementor-hidden-tablet {
+  .elementor:not(.elementor-edit-area-active) .elementor-hidden-tablet {
     display: none; } }
 
 @media (min-width: ELEMENTOR_SCREEN_LG_MIN) {
-  .elementor-hidden-desktop {
+  .elementor:not(.elementor-edit-area-active) .elementor-hidden-desktop {
     display: none; } }

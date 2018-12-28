@@ -1,4 +1,4 @@
-/*! elementor-pro - v2.1.13 - 12-11-2018 */
+/*! elementor-pro - v2.3.1 - 19-12-2018 */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -82,13 +82,14 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 62);
+/******/ 	return __webpack_require__(__webpack_require__.s = 65);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */,
 /* 1 */,
-/* 2 */
+/* 2 */,
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -274,16 +275,16 @@ module.exports = elementorFrontend.Module.extend({
 });
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var FormSender = __webpack_require__(64),
+var FormSender = __webpack_require__(67),
     Form = FormSender.extend();
 
-var RedirectAction = __webpack_require__(65);
+var RedirectAction = __webpack_require__(68);
 
 module.exports = function ($scope) {
 	new Form({ $element: $scope });
@@ -291,13 +292,13 @@ module.exports = function ($scope) {
 };
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var PostsHandler = __webpack_require__(2);
+var PostsHandler = __webpack_require__(3);
 
 module.exports = PostsHandler.extend({
 	getSkinPrefix: function getSkinPrefix() {
@@ -306,7 +307,7 @@ module.exports = PostsHandler.extend({
 });
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -418,6 +419,11 @@ module.exports = elementorFrontend.Module.extend({
 
 	getSwiperOptions: function getSwiperOptions() {
 		var elementSettings = this.getElementSettings();
+
+		// TODO: Temp migration for old saved values since 2.2.0
+		if ('progress' === elementSettings.pagination) {
+			elementSettings.pagination = 'progressbar';
+		}
 
 		var swiperOptions = {
 			grabCursor: true,
@@ -534,7 +540,40 @@ module.exports = elementorFrontend.Module.extend({
 });
 
 /***/ }),
-/* 6 */
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Base = __webpack_require__(6),
+    TestimonialCarousel;
+
+TestimonialCarousel = Base.extend({
+
+	getDefaultSettings: function getDefaultSettings() {
+		var defaultSettings = Base.prototype.getDefaultSettings.apply(this, arguments);
+
+		defaultSettings.slidesPerView = {
+			desktop: 1,
+			tablet: 1,
+			mobile: 1
+		};
+
+		return defaultSettings;
+	},
+
+	getEffect: function getEffect() {
+		return 'slide';
+	}
+});
+
+module.exports = function ($scope) {
+	new TestimonialCarousel({ $element: $scope });
+};
+
+/***/ }),
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -643,8 +682,6 @@ module.exports = function ($scope) {
 };
 
 /***/ }),
-/* 7 */,
-/* 8 */,
 /* 9 */,
 /* 10 */,
 /* 11 */,
@@ -698,7 +735,10 @@ module.exports = function ($scope) {
 /* 59 */,
 /* 60 */,
 /* 61 */,
-/* 62 */
+/* 62 */,
+/* 63 */,
+/* 64 */,
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -712,19 +752,20 @@ var ElementorProFrontend = function ElementorProFrontend($) {
 	this.modules = {};
 
 	var handlers = {
-		form: __webpack_require__(63),
-		countdown: __webpack_require__(69),
-		posts: __webpack_require__(71),
-		slides: __webpack_require__(73),
-		share_buttons: __webpack_require__(75),
-		nav_menu: __webpack_require__(77),
-		animatedText: __webpack_require__(79),
-		carousel: __webpack_require__(81),
-		social: __webpack_require__(84),
-		themeElements: __webpack_require__(86),
-		themeBuilder: __webpack_require__(88),
-		sticky: __webpack_require__(91),
-		woocommerce: __webpack_require__(92)
+		form: __webpack_require__(66),
+		countdown: __webpack_require__(72),
+		posts: __webpack_require__(74),
+		slides: __webpack_require__(76),
+		share_buttons: __webpack_require__(78),
+		nav_menu: __webpack_require__(80),
+		animatedText: __webpack_require__(82),
+		carousel: __webpack_require__(84),
+		social: __webpack_require__(86),
+		themeElements: __webpack_require__(88),
+		themeBuilder: __webpack_require__(90),
+		sticky: __webpack_require__(93),
+		woocommerce: __webpack_require__(94),
+		lightbox: __webpack_require__(96)
 	};
 
 	var addIeCompatibility = function addIeCompatibility() {
@@ -759,24 +800,24 @@ var ElementorProFrontend = function ElementorProFrontend($) {
 window.elementorProFrontend = new ElementorProFrontend(jQuery);
 
 /***/ }),
-/* 63 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-	elementorFrontend.hooks.addAction('frontend/element_ready/form.default', __webpack_require__(3));
-	elementorFrontend.hooks.addAction('frontend/element_ready/subscribe.default', __webpack_require__(3));
+	elementorFrontend.hooks.addAction('frontend/element_ready/form.default', __webpack_require__(4));
+	elementorFrontend.hooks.addAction('frontend/element_ready/subscribe.default', __webpack_require__(4));
 
-	elementorFrontend.hooks.addAction('frontend/element_ready/form.default', __webpack_require__(66));
+	elementorFrontend.hooks.addAction('frontend/element_ready/form.default', __webpack_require__(69));
 
-	elementorFrontend.hooks.addAction('frontend/element_ready/form.default', __webpack_require__(67));
-	elementorFrontend.hooks.addAction('frontend/element_ready/form.default', __webpack_require__(68));
+	elementorFrontend.hooks.addAction('frontend/element_ready/form.default', __webpack_require__(70));
+	elementorFrontend.hooks.addAction('frontend/element_ready/form.default', __webpack_require__(71));
 };
 
 /***/ }),
-/* 64 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -807,6 +848,33 @@ module.exports = elementorFrontend.Module.extend({
 
 	bindEvents: function bindEvents() {
 		this.elements.$form.on('submit', this.handleSubmit);
+		var $fileInput = this.elements.$form.find('input[type=file]');
+		if ($fileInput.length) {
+			$fileInput.on('change', this.validateFileSize);
+		}
+	},
+
+	validateFileSize: function validateFileSize(event) {
+		var _this = this;
+
+		var $field = jQuery(event.currentTarget),
+		    files = $field[0].files;
+
+		if (!files.length) {
+			return;
+		}
+
+		var maxSize = parseInt($field.attr('data-maxsize')) * 1024 * 1024,
+		    maxSizeMessage = $field.attr('data-maxsize-message');
+
+		var filesArray = Array.prototype.slice.call(files);
+		filesArray.forEach(function (file) {
+			if (maxSize < file.size) {
+				$field.parent().addClass('elementor-error').append('<span class="elementor-message elementor-message-danger elementor-help-inline elementor-form-help-inline" role="alert">' + maxSizeMessage + '</span>').find(':input').attr('aria-invalid', 'true');
+
+				_this.elements.$form.trigger('error');
+			}
+		});
 	},
 
 	beforeSend: function beforeSend() {
@@ -905,7 +973,7 @@ module.exports = elementorFrontend.Module.extend({
 });
 
 /***/ }),
-/* 65 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -941,7 +1009,7 @@ module.exports = elementorFrontend.Module.extend({
 });
 
 /***/ }),
-/* 66 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -982,7 +1050,7 @@ module.exports = function ($scope) {
 };
 
 /***/ }),
-/* 67 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1012,7 +1080,7 @@ module.exports = function ($scope, $) {
 };
 
 /***/ }),
-/* 68 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1041,38 +1109,69 @@ module.exports = function ($scope, $) {
 };
 
 /***/ }),
-/* 69 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-	elementorFrontend.hooks.addAction('frontend/element_ready/countdown.default', __webpack_require__(70));
+	elementorFrontend.hooks.addAction('frontend/element_ready/countdown.default', __webpack_require__(73));
 };
 
 /***/ }),
-/* 70 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var Countdown = function Countdown($countdown, endTime, $) {
-	var timeInterval,
-	    elements = {
-		$daysSpan: $countdown.find('.elementor-countdown-days'),
-		$hoursSpan: $countdown.find('.elementor-countdown-hours'),
-		$minutesSpan: $countdown.find('.elementor-countdown-minutes'),
-		$secondsSpan: $countdown.find('.elementor-countdown-seconds')
-	};
+var CountDown = elementorFrontend.Module.extend({
 
-	var updateClock = function updateClock() {
-		var timeRemaining = Countdown.getTimeRemaining(endTime);
+	cache: null,
 
-		$.each(timeRemaining.parts, function (timePart) {
-			var $element = elements['$' + timePart + 'Span'],
-			    partValue = this.toString();
+	cacheElements: function cacheElements() {
+		var $countDown = this.$element.find('.elementor-countdown-wrapper');
+
+		this.cache = {
+			$countDown: $countDown,
+			timeInterval: null,
+			elements: {
+				$countdown: $countDown.find('.elementor-countdown-wrapper'),
+				$daysSpan: $countDown.find('.elementor-countdown-days'),
+				$hoursSpan: $countDown.find('.elementor-countdown-hours'),
+				$minutesSpan: $countDown.find('.elementor-countdown-minutes'),
+				$secondsSpan: $countDown.find('.elementor-countdown-seconds'),
+				$expireMessage: $countDown.parent().find('.elementor-countdown-expire--message')
+			},
+			data: {
+				id: this.$element.data('id'),
+				endTime: new Date($countDown.data('date') * 1000),
+				actions: $countDown.data('expire-actions'),
+				evergreenInterval: $countDown.data('evergreen-interval')
+			}
+		};
+	},
+
+	onInit: function onInit() {
+		elementorFrontend.Module.prototype.onInit.apply(this, arguments);
+
+		this.cacheElements();
+
+		if (0 < this.cache.data.evergreenInterval) {
+			this.cache.data.endTime = this.getEvergreenDate();
+		}
+
+		this.initializeClock();
+	},
+
+	updateClock: function updateClock() {
+		var self = this,
+		    timeRemaining = this.getTimeRemaining(this.cache.data.endTime);
+
+		jQuery.each(timeRemaining.parts, function (timePart) {
+			var $element = self.cache.elements['$' + timePart + 'Span'];
+			var partValue = this.toString();
 
 			if (1 === partValue.length) {
 				partValue = 0 + partValue;
@@ -1084,59 +1183,116 @@ var Countdown = function Countdown($countdown, endTime, $) {
 		});
 
 		if (timeRemaining.total <= 0) {
-			clearInterval(timeInterval);
+			clearInterval(this.cache.timeInterval);
+			this.runActions();
 		}
-	};
+	},
 
-	var initializeClock = function initializeClock() {
-		updateClock();
+	initializeClock: function initializeClock() {
+		var self = this;
+		this.updateClock();
 
-		timeInterval = setInterval(updateClock, 1000);
-	};
+		this.cache.timeInterval = setInterval(function () {
+			self.updateClock();
+		}, 1000);
+	},
 
-	initializeClock();
-};
+	runActions: function runActions() {
+		var self = this;
 
-Countdown.getTimeRemaining = function (endTime) {
-	var timeRemaining = endTime - new Date(),
-	    seconds = Math.floor(timeRemaining / 1000 % 60),
-	    minutes = Math.floor(timeRemaining / 1000 / 60 % 60),
-	    hours = Math.floor(timeRemaining / (1000 * 60 * 60) % 24),
-	    days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+		// Trigger general event for 3rd patry actions
+		self.$element.trigger('countdown_expire', self.$element);
 
-	if (days < 0 || hours < 0 || minutes < 0) {
-		seconds = minutes = hours = days = 0;
+		if (!this.cache.data.actions) {
+			return;
+		}
+
+		this.cache.data.actions.forEach(function (action) {
+			switch (action.type) {
+				case 'hide':
+					self.cache.$countDown.hide();
+					break;
+				case 'redirect':
+					if (action.redirect_url) {
+						window.location.href = action.redirect_url;
+					}
+					break;
+				case 'message':
+					self.cache.elements.$expireMessage.show();
+					break;
+			}
+		});
+	},
+
+	getTimeRemaining: function getTimeRemaining(endTime) {
+		var timeRemaining = endTime - new Date();
+		var seconds = Math.floor(timeRemaining / 1000 % 60),
+		    minutes = Math.floor(timeRemaining / 1000 / 60 % 60),
+		    hours = Math.floor(timeRemaining / (1000 * 60 * 60) % 24),
+		    days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+
+		if (days < 0 || hours < 0 || minutes < 0) {
+			seconds = minutes = hours = days = 0;
+		}
+
+		return {
+			total: timeRemaining,
+			parts: {
+				days: days,
+				hours: hours,
+				minutes: minutes,
+				seconds: seconds
+			}
+		};
+	},
+
+	getEvergreenDate: function getEvergreenDate() {
+		var self = this,
+		    id = this.cache.data.id,
+		    interval = this.cache.data.evergreenInterval,
+		    dueDateKey = id + '-evergreen_due_date',
+		    intervalKey = id + '-evergreen_interval',
+		    localData = {
+			dueDate: localStorage.getItem(dueDateKey),
+			interval: localStorage.getItem(intervalKey)
+		},
+		    initEvergreen = function initEvergreen() {
+			var evergreenDueDate = new Date();
+			self.cache.data.endTime = evergreenDueDate.setSeconds(evergreenDueDate.getSeconds() + interval);
+			localStorage.setItem(dueDateKey, self.cache.data.endTime);
+			localStorage.setItem(intervalKey, interval);
+			return self.cache.data.endTime;
+		};
+
+		if (null === localData.dueDate && null === localData.interval) {
+			return initEvergreen();
+		}
+
+		if (null !== localData.dueDate && interval !== parseInt(localData.interval, 10)) {
+			return initEvergreen();
+		}
+
+		if (localData.dueDate > 0 && parseInt(localData.interval, 10) === interval) {
+			return localData.dueDate;
+		}
 	}
+});
 
-	return {
-		total: timeRemaining,
-		parts: {
-			days: days,
-			hours: hours,
-			minutes: minutes,
-			seconds: seconds
-		}
-	};
-};
-
-module.exports = function ($scope, $) {
-	var $element = $scope.find('.elementor-countdown-wrapper'),
-	    date = new Date($element.data('date') * 1000);
-
-	new Countdown($element, date, $);
+module.exports = function ($scope) {
+	new CountDown({ $element: $scope });
 };
 
 /***/ }),
-/* 71 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-	var PostsModule = __webpack_require__(2),
-	    CardsModule = __webpack_require__(4),
-	    PortfolioModule = __webpack_require__(72);
+	var PostsModule = __webpack_require__(3),
+	    CardsModule = __webpack_require__(5),
+	    PortfolioModule = __webpack_require__(75);
 
 	elementorFrontend.hooks.addAction('frontend/element_ready/posts.classic', function ($scope) {
 		new PostsModule({ $element: $scope });
@@ -1156,13 +1312,13 @@ module.exports = function () {
 };
 
 /***/ }),
-/* 72 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var PostsHandler = __webpack_require__(2);
+var PostsHandler = __webpack_require__(3);
 
 module.exports = PostsHandler.extend({
 	getElementName: function getElementName() {
@@ -1429,18 +1585,18 @@ module.exports = PostsHandler.extend({
 });
 
 /***/ }),
-/* 73 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-	elementorFrontend.hooks.addAction('frontend/element_ready/slides.default', __webpack_require__(74));
+	elementorFrontend.hooks.addAction('frontend/element_ready/slides.default', __webpack_require__(77));
 };
 
 /***/ }),
-/* 74 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1545,7 +1701,7 @@ module.exports = function ($scope) {
 };
 
 /***/ }),
-/* 75 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1553,12 +1709,12 @@ module.exports = function ($scope) {
 
 module.exports = function () {
 	if (!elementorFrontend.isEditMode()) {
-		elementorFrontend.hooks.addAction('frontend/element_ready/share-buttons.default', __webpack_require__(76));
+		elementorFrontend.hooks.addAction('frontend/element_ready/share-buttons.default', __webpack_require__(79));
 	}
 };
 
 /***/ }),
-/* 76 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1637,7 +1793,7 @@ module.exports = function ($scope) {
 };
 
 /***/ }),
-/* 77 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1655,11 +1811,11 @@ module.exports = function () {
 		}
 	}
 
-	elementorFrontend.hooks.addAction('frontend/element_ready/nav-menu.default', __webpack_require__(78));
+	elementorFrontend.hooks.addAction('frontend/element_ready/nav-menu.default', __webpack_require__(81));
 };
 
 /***/ }),
-/* 78 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1673,6 +1829,7 @@ var MenuHandler = elementorFrontend.Module.extend({
 		return {
 			selectors: {
 				menu: '.elementor-nav-menu',
+				anchorLink: '.elementor-nav-menu--main .elementor-item-anchor',
 				dropdownMenu: '.elementor-nav-menu__container.elementor-nav-menu--dropdown',
 				menuToggle: '.elementor-menu-toggle'
 			}
@@ -1684,6 +1841,7 @@ var MenuHandler = elementorFrontend.Module.extend({
 		    elements = {};
 
 		elements.$menu = this.$element.find(selectors.menu);
+		elements.$anchorLink = this.$element.find(selectors.anchorLink);
 		elements.$dropdownMenu = this.$element.find(selectors.dropdownMenu);
 		elements.$dropdownMenuFinalItems = elements.$dropdownMenu.find('.menu-item:not(.menu-item-has-children) > a');
 		elements.$menuToggle = this.$element.find(selectors.menuToggle);
@@ -1723,6 +1881,49 @@ var MenuHandler = elementorFrontend.Module.extend({
 		}
 	},
 
+	followMenuAnchors: function followMenuAnchors() {
+		var self = this;
+
+		self.elements.$anchorLink.each(function () {
+			if (location.pathname === this.pathname && '' !== this.hash) {
+				self.followMenuAnchor(jQuery(this));
+			}
+		});
+	},
+
+	followMenuAnchor: function followMenuAnchor($element) {
+		var anchorSelector = $element[0].hash,
+
+		// `decodeURIComponent` for UTF8 characters in the hash.
+		$anchor = jQuery(decodeURIComponent(anchorSelector)),
+		    offset = -300;
+
+		if (!$anchor.length) {
+			return;
+		}
+
+		if (!$anchor.hasClass('elementor-menu-anchor')) {
+			var halfViewport = jQuery(window).height() / 2;
+			offset = -$anchor.outerHeight() + halfViewport;
+		}
+
+		elementorFrontend.waypoint($anchor, function (direction) {
+			if ('down' === direction) {
+				$element.addClass('elementor-item-active');
+			} else {
+				$element.removeClass('elementor-item-active');
+			}
+		}, { offset: '50%', triggerOnce: false });
+
+		elementorFrontend.waypoint($anchor, function (direction) {
+			if ('down' === direction) {
+				$element.removeClass('elementor-item-active');
+			} else {
+				$element.addClass('elementor-item-active');
+			}
+		}, { offset: offset, triggerOnce: false });
+	},
+
 	stretchMenu: function stretchMenu() {
 		if (this.getElementSettings('full_width')) {
 			this.stretchElement.stretch();
@@ -1749,6 +1950,10 @@ var MenuHandler = elementorFrontend.Module.extend({
 		this.initStretchElement();
 
 		this.stretchMenu();
+
+		if (!elementorFrontend.isEditMode()) {
+			this.followMenuAnchors();
+		}
 	},
 
 	onElementChange: function onElementChange(propertyName) {
@@ -1763,18 +1968,18 @@ module.exports = function ($scope) {
 };
 
 /***/ }),
-/* 79 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-    elementorFrontend.hooks.addAction('frontend/element_ready/animated-headline.default', __webpack_require__(80));
+    elementorFrontend.hooks.addAction('frontend/element_ready/animated-headline.default', __webpack_require__(83));
 };
 
 /***/ }),
-/* 80 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2062,25 +2267,26 @@ module.exports = function ($scope) {
 };
 
 /***/ }),
-/* 81 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-	elementorFrontend.hooks.addAction('frontend/element_ready/media-carousel.default', __webpack_require__(82));
-	elementorFrontend.hooks.addAction('frontend/element_ready/testimonial-carousel.default', __webpack_require__(83));
+	elementorFrontend.hooks.addAction('frontend/element_ready/media-carousel.default', __webpack_require__(85));
+	elementorFrontend.hooks.addAction('frontend/element_ready/testimonial-carousel.default', __webpack_require__(7));
+	elementorFrontend.hooks.addAction('frontend/element_ready/reviews.default', __webpack_require__(7));
 };
 
 /***/ }),
-/* 82 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var Base = __webpack_require__(5),
+var Base = __webpack_require__(6),
     MediaCarousel;
 
 MediaCarousel = Base.extend({
@@ -2232,46 +2438,13 @@ module.exports = function ($scope) {
 };
 
 /***/ }),
-/* 83 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var Base = __webpack_require__(5),
-    TestimonialCarousel;
-
-TestimonialCarousel = Base.extend({
-
-	getDefaultSettings: function getDefaultSettings() {
-		var defaultSettings = Base.prototype.getDefaultSettings.apply(this, arguments);
-
-		defaultSettings.slidesPerView = {
-			desktop: 1,
-			tablet: 1,
-			mobile: 1
-		};
-
-		return defaultSettings;
-	},
-
-	getEffect: function getEffect() {
-		return 'slide';
-	}
-});
-
-module.exports = function ($scope) {
-	new TestimonialCarousel({ $element: $scope });
-};
-
-/***/ }),
-/* 84 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var facebookHandler = __webpack_require__(85);
+var facebookHandler = __webpack_require__(87);
 
 module.exports = function () {
 	elementorFrontend.hooks.addAction('frontend/element_ready/facebook-button.default', facebookHandler);
@@ -2281,7 +2454,7 @@ module.exports = function () {
 };
 
 /***/ }),
-/* 85 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2329,18 +2502,18 @@ module.exports = function ($scope) {
 };
 
 /***/ }),
-/* 86 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-    elementorFrontend.hooks.addAction('frontend/element_ready/search-form.default', __webpack_require__(87));
+    elementorFrontend.hooks.addAction('frontend/element_ready/search-form.default', __webpack_require__(89));
 };
 
 /***/ }),
-/* 87 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2444,15 +2617,15 @@ module.exports = function ($scope) {
 };
 
 /***/ }),
-/* 88 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-	var PostsArchiveClassic = __webpack_require__(89),
-	    PostsArchiveCards = __webpack_require__(90);
+	var PostsArchiveClassic = __webpack_require__(91),
+	    PostsArchiveCards = __webpack_require__(92);
 
 	elementorFrontend.hooks.addAction('frontend/element_ready/archive-posts.archive_classic', function ($scope) {
 		new PostsArchiveClassic({ $element: $scope });
@@ -2475,13 +2648,13 @@ module.exports = function () {
 };
 
 /***/ }),
-/* 89 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var PostsClassicHandler = __webpack_require__(2);
+var PostsClassicHandler = __webpack_require__(3);
 
 module.exports = PostsClassicHandler.extend({
 
@@ -2495,13 +2668,13 @@ module.exports = PostsClassicHandler.extend({
 });
 
 /***/ }),
-/* 90 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var PostsCardHandler = __webpack_require__(4);
+var PostsCardHandler = __webpack_require__(5);
 
 module.exports = PostsCardHandler.extend({
 
@@ -2515,26 +2688,26 @@ module.exports = PostsCardHandler.extend({
 });
 
 /***/ }),
-/* 91 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-    elementorFrontend.hooks.addAction('frontend/element_ready/section', __webpack_require__(6));
-    elementorFrontend.hooks.addAction('frontend/element_ready/widget', __webpack_require__(6));
+    elementorFrontend.hooks.addAction('frontend/element_ready/section', __webpack_require__(8));
+    elementorFrontend.hooks.addAction('frontend/element_ready/widget', __webpack_require__(8));
 };
 
 /***/ }),
-/* 92 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-	elementorFrontend.hooks.addAction('frontend/element_ready/woocommerce-menu-cart.default', __webpack_require__(93));
+	elementorFrontend.hooks.addAction('frontend/element_ready/woocommerce-menu-cart.default', __webpack_require__(95));
 
 	if (elementorFrontend.isEditMode()) {
 		return;
@@ -2548,7 +2721,7 @@ module.exports = function () {
 };
 
 /***/ }),
-/* 93 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2588,7 +2761,8 @@ var SearchBerHandler = elementorFrontend.Module.extend({
 		    classes = this.getSettings('classes');
 
 		// Activate full-screen mode on click
-		self.elements.$toggle.on('click', function () {
+		self.elements.$toggle.on('click', function (event) {
+			event.preventDefault();
 			$container.toggleClass(classes.isShown);
 		});
 
@@ -2618,6 +2792,54 @@ var SearchBerHandler = elementorFrontend.Module.extend({
 module.exports = function ($scope) {
 	new SearchBerHandler({ $element: $scope });
 };
+
+/***/ }),
+/* 96 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function () {
+	var LightBox = __webpack_require__(97);
+	this.dynamicTags = {
+		lightbox: new LightBox()
+	};
+};
+
+/***/ }),
+/* 97 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var DynamicLightbox = elementorFrontend.Module.__super__.constructor.extend({
+
+	selectors: {
+		lightbox: 'a[href^="\!\#elementor-lightbox|"]'
+	},
+
+	bindEvents: function bindEvents() {
+		elementorFrontend.getElements('$document').on('click', this.selectors.lightbox, this.triggerLightbox);
+	},
+
+	triggerLightbox: function triggerLightbox(event) {
+		event.preventDefault();
+		var settingsString = jQuery(event.currentTarget).attr('href');
+
+		settingsString = settingsString.replace('!#elementor-lightbox|', '');
+		var lightboxSettings = JSON.parse(settingsString);
+
+		if ('video' === lightboxSettings.type && '' === lightboxSettings.url) {
+			return;
+		}
+
+		elementorFrontend.utils.lightbox.showModal(lightboxSettings);
+	}
+});
+
+module.exports = DynamicLightbox;
 
 /***/ })
 /******/ ]);

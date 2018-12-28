@@ -1,4 +1,4 @@
-/*! elementor-pro - v2.1.13 - 12-11-2018 */
+/*! elementor-pro - v2.3.1 - 19-12-2018 */
 #elementor-panel-get-pro-elements {
   display: none; }
 
@@ -259,7 +259,8 @@
     cursor: pointer;
     color: #a4afb7; }
   #elementor-theme-builder-conditions .elementor-button-wrapper {
-    margin-top: 50px; }
+    margin-top: 50px;
+    margin-bottom: 80px; }
   #elementor-theme-builder-conditions .elementor-repeater-add {
     font-size: 14px;
     padding: 12px 26px; }
@@ -312,4 +313,7 @@
   .elementor-conditions-select2-dropdown .select2-search--dropdown .select2-search__field {
     border-width: 0 0 1px;
     border-radius: 0; }
+
+.elementor-control.elementor-control-sitemap_items.elementor-control-type-repeater .elementor-repeater-row-tools .elementor-repeater-row-item-title span {
+  text-transform: capitalize; }
 /*# sourceMappingURL=editor.css.map */

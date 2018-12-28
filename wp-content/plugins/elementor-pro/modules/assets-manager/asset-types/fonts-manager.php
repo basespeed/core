@@ -1,6 +1,7 @@
 <?php
 namespace ElementorPro\Modules\AssetsManager\AssetTypes;
 
+use Elementor\Core\Common\Modules\Ajax\Module as Ajax;
 use ElementorPro\Plugin;
 use ElementorPro\Modules\AssetsManager\Classes;
 use Elementor\Settings;
@@ -211,36 +212,32 @@ class Fonts_Manager {
 
 	/**
 	 * Handle editor request to embed/link font CSS per font type
+	 *
+	 * @param array $data
+	 *
+	 * @return array
+	 * @throws \Exception
 	 */
-	public function assets_manager_panel_action_data() {
-		Plugin::elementor()->editor->verify_ajax_nonce();
-
-		$data = $_POST; // WPCS: CSRF OK.
-
+	public function assets_manager_panel_action_data( array $data ) {
 		if ( empty( $data['type'] ) ) {
-			wp_send_json_error( new \WP_Error( 'font_type_is_required' ) );
+			throw new \Exception( 'font_type_is_required' );
 		}
+
 		if ( empty( $data['font'] ) ) {
-			wp_send_json_error( new \WP_Error( 'font_is_required' ) );
+			throw new \Exception( 'font_is_required' );
 		}
 
 		$asset = $this->get_font_type_object( $data['type'] );
 
 		if ( ! $asset ) {
-			wp_send_json_error( new \WP_Error( 'font_type_not_found' ) );
+			throw new \Exception( 'font_type_not_found' );
 		}
 
 		try {
-			$return_array = $asset->handle_panel_request();
-
-			wp_send_json_success( $return_array );
+			return $asset->handle_panel_request( $data );
 
 		} catch ( \Exception $exception ) {
-			$return_array = [
-				'message' => $exception->getMessage(),
-			];
-
-			wp_send_json_error( $return_array );
+			throw $exception;
 		}
 	}
 
@@ -489,6 +486,10 @@ class Fonts_Manager {
 		}
 	}
 
+	public function register_ajax_actions( Ajax $ajax ) {
+		$ajax->register_ajax_action( 'pro_assets_manager_panel_action_data', [ $this, 'assets_manager_panel_action_data' ] );
+	}
+
 	public function add_finder_item( array $categories ) {
 		$categories['settings']['items']['custom-fonts'] = [
 			'title' => __( 'Custom Fonts', 'elementor-pro' ),
@@ -525,7 +526,7 @@ class Fonts_Manager {
 		add_filter( 'enter_title_here', [ $this, 'update_enter_title_here' ], 10, 2 );
 
 		// Ajax.
-		add_action( 'wp_ajax_elementor_pro_assets_manager_panel_action_data', [ $this, 'assets_manager_panel_action_data' ] );
+		add_action( 'elementor/ajax/register_actions', [ $this, 'register_ajax_actions' ] );
 
 		/**
 		 * Elementor fonts manager loaded.

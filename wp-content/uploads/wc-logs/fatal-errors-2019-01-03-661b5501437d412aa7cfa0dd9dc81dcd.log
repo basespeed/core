@@ -1,0 +1,11 @@
+2019-01-03T01:41:38+00:00 CRITICAL Uncaught Error: Using $this when not in object context in C:\xampp\htdocs\test\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-product.php:600
+Stack trace:
+#0 C:\xampp\htdocs\test\wp-content\themes\nextcore\woocommerce\single-product\product-image.php(38): WC_Product::get_gallery_image_ids()
+#1 C:\xampp\htdocs\test\wp-content\plugins\woocommerce\includes\wc-core-functions.php(208): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\test\wp-content\plugins\woocommerce\includes\wc-template-functions.php(1368): wc_get_template('single-product/...')
+#3 C:\xampp\htdocs\test\wp-includes\class-wp-hook.php(286): woocommerce_show_product_images('')
+#4 C:\xampp\htdocs\test\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#5 C:\xampp\htdocs\test\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#6 C:\xampp\htdocs\test\wp-content\plugins\woocommerce\templates\content-single-product.php(41): do_action('woocommerce_bef...')
+#7 C:\xampp\htdocs\test\wp-includes\template.php(690): req in C:\xampp\htdocs\test\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-product.php on line 600
+

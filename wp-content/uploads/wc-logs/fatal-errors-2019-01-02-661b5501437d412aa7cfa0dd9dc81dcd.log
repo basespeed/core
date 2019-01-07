@@ -1,0 +1,17 @@
+2019-01-02T02:14:38+00:00 CRITICAL syntax error, unexpected 'public' (T_PUBLIC), expecting end of file in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\lib\function-default.php on line 490
+
+2019-01-02T04:40:55+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function add_action(), 1 passed in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\lib\hook\woocommerce\content-product.php on line 28 and at least 2 expected in C:\xampp\htdocs\test\wp-includes\plugin.php:398
+Stack trace:
+#0 C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\lib\hook\woocommerce\content-product.php(28): add_action('')
+#1 C:\xampp\htdocs\test\wp-content\themes\nextcore\core\core.php(31): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\test\wp-content\themes\nextcore\core\core.php(10): NextCore->hook()
+#3 C:\xampp\htdocs\test\wp-content\themes\nextcore\core\core.php(62): NextCore::getInstance()
+#4 C:\xampp\htdocs\test\wp-content\themes\nextcore\core\core.php(65): getNextCore()
+#5 C:\xampp\htdocs\test\wp-content\themes\nextcore\functions.php(2): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\test\wp-settings.php(443): include('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\test\wp-config.php(89): require_once('C:\\xampp\\htdocs. in C:\xampp\htdocs\test\wp-includes\plugin.php on line 398
+
+2019-01-02T07:11:18+00:00 CRITICAL Cannot redeclare woocommerce_ajax_add_to_cart() (previously declared in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\lib\function-default.php:554) in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\lib\function-default.php on line 610
+
+2019-01-02T07:11:21+00:00 CRITICAL Cannot redeclare woocommerce_ajax_add_to_cart() (previously declared in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\lib\function-default.php:554) in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\lib\function-default.php on line 610
+

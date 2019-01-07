@@ -1,4 +1,4 @@
-var ThemeName = 'nextcore';
+var ThemeName = 'nextcore-child';
 
 var gulp             = require('gulp');
 var sass             = require('gulp-sass');

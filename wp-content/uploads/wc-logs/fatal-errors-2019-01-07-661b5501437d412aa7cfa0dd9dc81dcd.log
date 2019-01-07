@@ -1,0 +1,2 @@
+2019-01-07T06:47:32+00:00 CRITICAL Cannot redeclare enq_menu_scripts_and_styles() (previously declared in C:\xampp\htdocs\test\wp-content\themes\nextcore-child\functions.php:39) in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\lib\function-default.php on line 207
+

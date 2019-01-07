@@ -1,0 +1,117 @@
+2018-12-29T03:21:42+00:00 CRITICAL Uncaught Error: Call to a member function is_on_sale() on null in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\lib\hook\woocommerce\hook_product_item.php:11
+Stack trace:
+#0 C:\xampp\htdocs\test\wp-includes\class-wp-hook.php(286): woocommerce_show_product_loop_sale_flash_edit('')
+#1 C:\xampp\htdocs\test\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#2 C:\xampp\htdocs\test\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\test\wp-content\plugins\woocommerce\templates\content-product.php(42): do_action('woocommerce_bef...')
+#4 C:\xampp\htdocs\test\wp-includes\template.php(690): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\test\wp-content\plugins\woocommerce\includes\wc-core-functions.php(178): load_template('C:\\xampp\\htdocs...', false)
+#6 C:\xampp\htdocs\test\wp-content\plugins\woocommerce\includes\shortcodes\class-wc-shortcode-products.php(643): wc_get_template_part('content', 'product')
+#7 C:\xampp\htdocs\test\wp-content\plugins\woocommerce\ in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\lib\hook\woocommerce\hook_product_item.php on line 11
+
+2018-12-29T03:27:19+00:00 CRITICAL Cannot redeclare change_displayed_sale_price_html() (previously declared in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\lib\hook\woocommerce\hook_product_item.php:3) in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\lib\hook\woocommerce\hook_product_item.php on line 35
+
+2018-12-29T03:27:21+00:00 CRITICAL Cannot redeclare change_displayed_sale_price_html() (previously declared in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\lib\hook\woocommerce\hook_product_item.php:3) in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\lib\hook\woocommerce\hook_product_item.php on line 35
+
+2018-12-29T03:47:11+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Grouped::get_available_variations() in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\lib\hook\woocommerce\hook_product_item.php:53
+Stack trace:
+#0 C:\xampp\htdocs\test\wp-includes\class-wp-hook.php(286): woocommerce_show_product_loop_sale_flash_edit('')
+#1 C:\xampp\htdocs\test\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#2 C:\xampp\htdocs\test\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\test\wp-content\plugins\woocommerce\templates\content-product.php(42): do_action('woocommerce_bef...')
+#4 C:\xampp\htdocs\test\wp-includes\template.php(690): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\test\wp-content\plugins\woocommerce\includes\wc-core-functions.php(178): load_template('C:\\xampp\\htdocs...', false)
+#6 C:\xampp\htdocs\test\wp-content\plugins\woocommerce\includes\shortcodes\class-wc-shortcode-products.php(643): wc_get_template_part('content', 'product')
+#7 C:\xampp\htdocs\test\wp-con in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\lib\hook\woocommerce\hook_product_item.php on line 53
+
+2018-12-29T03:47:25+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Grouped::get_available_variations() in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\lib\hook\woocommerce\hook_product_item.php:53
+Stack trace:
+#0 C:\xampp\htdocs\test\wp-includes\class-wp-hook.php(286): woocommerce_show_product_loop_sale_flash_edit('')
+#1 C:\xampp\htdocs\test\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#2 C:\xampp\htdocs\test\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\test\wp-content\plugins\woocommerce\templates\content-product.php(42): do_action('woocommerce_bef...')
+#4 C:\xampp\htdocs\test\wp-includes\template.php(690): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\test\wp-content\plugins\woocommerce\includes\wc-core-functions.php(178): load_template('C:\\xampp\\htdocs...', false)
+#6 C:\xampp\htdocs\test\wp-content\plugins\woocommerce\includes\shortcodes\class-wc-shortcode-products.php(643): wc_get_template_part('content', 'product')
+#7 C:\xampp\htdocs\test\wp-con in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\lib\hook\woocommerce\hook_product_item.php on line 53
+
+2018-12-29T03:48:12+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Grouped::get_available_variations() in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\lib\hook\woocommerce\hook_product_item.php:51
+Stack trace:
+#0 C:\xampp\htdocs\test\wp-includes\class-wp-hook.php(286): woocommerce_show_product_loop_sale_flash_edit('')
+#1 C:\xampp\htdocs\test\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#2 C:\xampp\htdocs\test\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\test\wp-content\plugins\woocommerce\templates\content-product.php(42): do_action('woocommerce_bef...')
+#4 C:\xampp\htdocs\test\wp-includes\template.php(690): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\test\wp-content\plugins\woocommerce\includes\wc-core-functions.php(178): load_template('C:\\xampp\\htdocs...', false)
+#6 C:\xampp\htdocs\test\wp-content\plugins\woocommerce\includes\shortcodes\class-wc-shortcode-products.php(643): wc_get_template_part('content', 'product')
+#7 C:\xampp\htdocs\test\wp-con in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\lib\hook\woocommerce\hook_product_item.php on line 51
+
+2018-12-29T03:55:46+00:00 CRITICAL Uncaught Error: Call to undefined function woo_percent_sale_product() in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\lib\hook\woocommerce\hook_product_item.php:56
+Stack trace:
+#0 C:\xampp\htdocs\test\wp-includes\class-wp-hook.php(286): woocommerce_show_product_sale_flash_single_edit('')
+#1 C:\xampp\htdocs\test\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 C:\xampp\htdocs\test\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\test\wp-content\plugins\woocommerce\templates\content-single-product.php(41): do_action('woocommerce_bef...')
+#4 C:\xampp\htdocs\test\wp-includes\template.php(690): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\test\wp-content\plugins\woocommerce\includes\wc-core-functions.php(178): load_template('C:\\xampp\\htdocs...', false)
+#6 C:\xampp\htdocs\test\wp-content\plugins\woocommerce\includes\class-wc-shortcodes.php(561): wc_get_template_part('content', 'single-product')
+#7 C:\xampp\htdocs\test\wp-includes\shortcodes.php(31 in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\lib\hook\woocommerce\hook_product_item.php on line 56
+
+2018-12-29T04:39:54+00:00 CRITICAL Uncaught Error: Call to undefined function func_change_column_layout() in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\templates\archive-shop.php:2
+Stack trace:
+#0 C:\xampp\htdocs\test\wp-content\themes\nextcore\core\core.php(55): include()
+#1 C:\xampp\htdocs\test\wp-content\themes\nextcore\page.php(22): get_templates_archive_shop()
+#2 C:\xampp\htdocs\test\wp-includes\template-loader.php(74): include('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\test\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\test\index.php(17): require('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\templates\archive-shop.php on line 2
+
+2018-12-29T04:40:08+00:00 CRITICAL Uncaught Error: Call to undefined function func_change_column_layout() in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\templates\archive-shop.php:2
+Stack trace:
+#0 C:\xampp\htdocs\test\wp-content\themes\nextcore\core\core.php(55): include()
+#1 C:\xampp\htdocs\test\wp-content\themes\nextcore\page.php(22): get_templates_archive_shop()
+#2 C:\xampp\htdocs\test\wp-includes\template-loader.php(74): include('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\test\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\test\index.php(17): require('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\templates\archive-shop.php on line 2
+
+2018-12-29T04:40:32+00:00 CRITICAL Uncaught Error: Call to undefined function func_change_column_layout() in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\templates\archive-shop.php:2
+Stack trace:
+#0 C:\xampp\htdocs\test\wp-content\themes\nextcore\core\core.php(55): include()
+#1 C:\xampp\htdocs\test\wp-content\themes\nextcore\page.php(22): get_templates_archive_shop()
+#2 C:\xampp\htdocs\test\wp-includes\template-loader.php(74): include('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\test\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\test\index.php(17): require('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\templates\archive-shop.php on line 2
+
+2018-12-29T04:45:43+00:00 CRITICAL syntax error, unexpected 'func_change_column_layout' (T_STRING) in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\lib\hook\layout\hook_change_layout.php on line 7
+
+2018-12-29T06:56:55+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function remove_action(), 1 passed in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\lib\function-default.php on line 423 and at least 2 expected in C:\xampp\htdocs\test\wp-includes\plugin.php:554
+Stack trace:
+#0 C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\lib\function-default.php(423): remove_action('woocommerce_acc...')
+#1 C:\xampp\htdocs\test\wp-content\themes\nextcore\core\core.php(56): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\test\wp-content\themes\nextcore\core\core.php(8): NextCore->FunctionDefault()
+#3 C:\xampp\htdocs\test\wp-content\themes\nextcore\core\core.php(61): NextCore::getInstance()
+#4 C:\xampp\htdocs\test\wp-content\themes\nextcore\core\core.php(64): getNextCore()
+#5 C:\xampp\htdocs\test\wp-content\themes\nextcore\functions.php(2): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\test\wp-settings.php(443): include('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\test\wp-config.php(89): require_once('C:\\xampp\\htd in C:\xampp\htdocs\test\wp-includes\plugin.php on line 554
+
+2018-12-29T06:57:21+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function remove_action(), 1 passed in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\lib\function-default.php on line 425 and at least 2 expected in C:\xampp\htdocs\test\wp-includes\plugin.php:554
+Stack trace:
+#0 C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\lib\function-default.php(425): remove_action('woocommerce_bef...')
+#1 C:\xampp\htdocs\test\wp-content\themes\nextcore\core\core.php(56): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\test\wp-content\themes\nextcore\core\core.php(8): NextCore->FunctionDefault()
+#3 C:\xampp\htdocs\test\wp-content\themes\nextcore\core\core.php(61): NextCore::getInstance()
+#4 C:\xampp\htdocs\test\wp-content\themes\nextcore\core\core.php(64): getNextCore()
+#5 C:\xampp\htdocs\test\wp-content\themes\nextcore\functions.php(2): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\test\wp-settings.php(443): include('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\test\wp-config.php(89): require_once('C:\\xampp\\htd in C:\xampp\htdocs\test\wp-includes\plugin.php on line 554
+
+2018-12-29T07:35:20+00:00 CRITICAL Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\templates\single.php on line 38
+
+2018-12-29T07:58:31+00:00 CRITICAL Cannot redeclare woocommerce_template_loop_product_thumbnail() (previously declared in C:\xampp\htdocs\test\wp-content\plugins\woocommerce\includes\wc-template-functions.php:1215) in C:\xampp\htdocs\test\wp-content\themes\nextcore\core\inc\lib\hook\woocommerce\content-product.php on line 7
+
